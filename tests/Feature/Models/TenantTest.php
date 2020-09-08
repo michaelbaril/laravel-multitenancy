@@ -12,7 +12,7 @@ use Spatie\Multitenancy\Tests\TestCase;
 
 class TenantTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
     public function setUp(): void
     {

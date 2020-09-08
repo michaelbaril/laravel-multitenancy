@@ -5,8 +5,10 @@
 use Faker\Generator;
 use Spatie\Multitenancy\Models\Tenant;
 
-$factory->define(Tenant::class, fn (Generator $faker) => [
-    'name' => $faker->name,
-    'domain' => $faker->unique()->domainName,
-    'database' => $faker->userName,
-]);
+$factory->define(Tenant::class, function (Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'domain' => $faker->unique()->domainName,
+        'database' => $faker->userName,
+    ];
+});

@@ -8,11 +8,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class MigrateTenantAction
 {
-    protected bool $fresh = false;
+    protected $fresh = false;
 
-    protected bool $seed = false;
+    protected $seed = false;
 
-    protected OutputInterface $output;
+    protected $output;
 
     public function fresh(bool $fresh = true): self
     {

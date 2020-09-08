@@ -11,7 +11,7 @@ class TestJob implements ShouldQueue
 {
     use InteractsWithQueue;
 
-    public Valuestore $valuestore;
+    public $valuestore;
 
     public function __construct(Valuestore $valuestore)
     {

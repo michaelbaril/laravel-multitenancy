@@ -9,9 +9,9 @@ use Spatie\Multitenancy\Tests\TestCase;
 
 class TenantsArtisanCommandTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
-    private Tenant $anotherTenant;
+    private $anotherTenant;
 
     public function setUp(): void
     {

@@ -10,9 +10,9 @@ use Spatie\Multitenancy\Tests\TestCase;
 
 class SwitchTenantDatabaseTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
-    private Tenant $anotherTenant;
+    private $anotherTenant;
 
     public function setUp(): void
     {

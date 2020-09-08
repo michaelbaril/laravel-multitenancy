@@ -20,7 +20,7 @@ trait TenantAware
         $tenantQuery = $this->getTenantModel()::query()
             ->when(! blank($tenants), function ($query) use ($tenants) {
                 collect($this->getTenantArtisanSearchFields())
-                    ->each(fn ($field) => $query->orWhereIn($field, Arr::wrap($tenants)));
+                    ->each(function ($field) use ($query, $tenants) { return $query->orWhereIn($field, Arr::wrap($tenants)); });
             });
 
         if ($tenantQuery->count() === 0) {
@@ -31,7 +31,7 @@ trait TenantAware
 
         return $tenantQuery
             ->cursor()
-            ->map(fn ($tenant) => $tenant->execute(fn () => (int) $this->laravel->call([$this, 'handle'])))
+            ->map(function ($tenant) { $tenant->execute(function () { return (int) $this->laravel->call([$this, 'handle']); }); })
             ->sum();
     }
 }

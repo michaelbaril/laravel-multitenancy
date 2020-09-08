@@ -7,7 +7,7 @@ use Spatie\Multitenancy\Tests\TestCase;
 
 class LandlordTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
     public function setUp(): void
     {
@@ -21,7 +21,7 @@ class LandlordTest extends TestCase
     {
         $this->tenant->makeCurrent();
 
-        $response = Landlord::execute(fn () => Tenant::current());
+        $response = Landlord::execute(function () { return Tenant::current(); });
 
         $this->assertNull($response);
 

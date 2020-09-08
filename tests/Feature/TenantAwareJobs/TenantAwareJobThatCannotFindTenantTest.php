@@ -14,9 +14,9 @@ use Spatie\Valuestore\Valuestore;
 
 class TenantAwareJobThatCannotFindTenantTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
-    private Valuestore $valuestore;
+    private $valuestore;
 
     public function setUp(): void
     {

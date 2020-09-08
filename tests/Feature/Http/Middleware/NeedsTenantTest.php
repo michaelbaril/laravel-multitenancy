@@ -10,7 +10,7 @@ use Spatie\Multitenancy\Tests\TestCase;
 
 class NeedsTenantTest extends TestCase
 {
-    private Tenant $tenant;
+    private $tenant;
 
     public function setUp(): void
     {
@@ -18,7 +18,7 @@ class NeedsTenantTest extends TestCase
 
         $this->withoutExceptionHandling();
 
-        Route::get('middleware-test', fn () => 'ok')->middleware(NeedsTenant::class);
+        Route::get('middleware-test', function () { return 'ok'; })->middleware(NeedsTenant::class);
 
         $this->tenant = factory(Tenant::class)->create();
     }

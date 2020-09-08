@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EnsureValidTenantSessionTest extends TestCase
 {
-    protected Tenant $tenant;
+    protected $tenant;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        Route::get('test-middleware', fn () => 'ok')->middleware(['web', EnsureValidTenantSession::class]);
+        Route::get('test-middleware', function () { return 'ok'; })->middleware(['web', EnsureValidTenantSession::class]);
 
         /** @var \Spatie\Multitenancy\Models\Tenant $tenant */
         $this->tenant = factory(Tenant::class)->create(['database' => 'laravel_mt_tenant_1']);

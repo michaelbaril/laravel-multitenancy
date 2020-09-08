@@ -8,15 +8,15 @@ use Spatie\Multitenancy\Tasks\SwitchTenantTask;
 
 class DummyTask implements SwitchTenantTask
 {
-    public Repository $config;
+    public $config;
 
-    public int $a;
+    public $a;
 
-    public int $b;
+    public $b;
 
-    public bool $madeCurrentCalled = false;
+    public $madeCurrentCalled = false;
 
-    public bool $forgotCurrentCalled = false;
+    public $forgotCurrentCalled = false;
 
     public function __construct(Repository $config, int $a = 0, int $b = 0)
     {

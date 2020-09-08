@@ -10,7 +10,7 @@ use Spatie\Multitenancy\Tasks\TasksCollection;
 
 class ForgetCurrentTenantAction
 {
-    private TasksCollection $tasksCollection;
+    private $tasksCollection;
 
     public function __construct(TasksCollection $tasksCollection)
     {
@@ -30,7 +30,7 @@ class ForgetCurrentTenantAction
 
     protected function performTaskToForgetCurrentTenant(): self
     {
-        $this->tasksCollection->each(fn (SwitchTenantTask $task) => $task->forgetCurrent());
+        $this->tasksCollection->each(function (SwitchTenantTask $task) { return $task->forgetCurrent(); });
 
         return $this;
     }

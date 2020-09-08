@@ -6,11 +6,11 @@ use Spatie\Multitenancy\Models\Tenant;
 
 class PrefixCacheTask implements SwitchTenantTask
 {
-    protected ?string $originalPrefix;
+    protected $originalPrefix;
 
-    private string $storeName;
+    private $storeName;
 
-    private string $cacheKeyBase;
+    private $cacheKeyBase;
 
     public function __construct(string $storeName = null, string $cacheKeyBase = null)
     {

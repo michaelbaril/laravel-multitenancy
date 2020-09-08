@@ -10,7 +10,7 @@ use Spatie\Multitenancy\Tasks\TasksCollection;
 
 class MakeTenantCurrentAction
 {
-    protected TasksCollection $tasksCollection;
+    protected $tasksCollection;
 
     public function __construct(TasksCollection $tasksCollection)
     {
@@ -32,7 +32,7 @@ class MakeTenantCurrentAction
 
     protected function performTasksToMakeTenantCurrent(Tenant $tenant): self
     {
-        $this->tasksCollection->each(fn (SwitchTenantTask $task) => $task->makeCurrent($tenant));
+        $this->tasksCollection->each(function (SwitchTenantTask $task) use ($tenant) { return $task->makeCurrent($tenant); });
 
         return $this;
     }
